@@ -1,6 +1,5 @@
 #操作html页面的类
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
+import time
 class operating(object):
     def __init__(self, driver):
         self.driver = driver
@@ -23,7 +22,11 @@ class operating(object):
              return 0
     #左键单击
     def left_click(self,xpath):
-        self.driver.find_element_by_xpath(xpath).click()
+        try:
+            self.driver.find_element_by_xpath(xpath).click()
+        except Exception:
+            time.sleep(2)
+            self.driver.find_element_by_xpath(xpath).click()
 
     #输入框输入
     def input_in(self,xpath,content):
