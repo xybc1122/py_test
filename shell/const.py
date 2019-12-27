@@ -2,8 +2,9 @@ OPEN_URL = 'http://172.17.0.134/login'
 U_NAME ="1000000"
 PWD ="dj123456"
 
-
-
+#添加请求头
+SUP_HEADERS = {}
+SUP_HEADERS['User-Agent']="'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36'"
 
 #输入账号密码
 IN_U_X ="//*[@id='login']/div[2]/div[2]/div[2]/div[1]/input"

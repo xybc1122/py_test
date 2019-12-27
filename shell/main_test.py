@@ -6,14 +6,8 @@ from operating_html import operating
 from quality_inspection import open_quality
 import const
 import time_util
-# import requests
-#
-# r = requests.get('http://172.17.0.134/djsupplier/firstPage/getWebFirstPageAll.do')
-# print(type(r.cookies))
-#
-# cookies = requests.utils.dict_from_cookiejar(r.cookies)
-# print(cookies)
-#
+from  http_res import http_client
+
 #创建谷歌对象
 driver = webdriver.Chrome()
 #打开url
@@ -27,7 +21,11 @@ time_util.sleep_2()
 is_log=op.html_login(Keys.ENTER,const.LOG_X)
 #判断是否登录
 if(bool(is_log)):
-    #print(driver.get_cookies())
+    # http 封装客户端
+    h_client=http_client(driver.get_cookies())
+    # test_url="http://172.17.0.134/djsupplier/firstPage/getWebFirstPageAll.do"
+    # res=h_client.get(test_url)
+    # print(res.text)
     # 左键单击开始工作
     op.left_click(const.LEF_S_X)
     time_util.sleep_1()
